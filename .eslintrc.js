@@ -16,14 +16,14 @@ module.exports = {
   ],
   overrides: [
     {
-      files: 'src/tests/**/*.test.ts',
+      files: 'src/**/*.test.ts',
       extends: [
         'plugin:jest/recommended',
         'plugin:jest/style'
       ]
     },
     {
-      files: 'cypress/**/*.ts',
+      files: 'cypress/**/*.spec.ts',
       extends: [
         'plugin:cypress/recommended'
       ]
