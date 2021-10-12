@@ -53,7 +53,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './build'
-          production-branch: master
+          production-branch: main
           production-deploy: $NETLIFY_PRODUCTION_DEPLOYMENT
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: $NETLIFY_MESSAGE
