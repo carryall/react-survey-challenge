@@ -1,16 +1,19 @@
 name: Deploy
 
 on:
-  pull_request:
-  # workflow_run:
-  #   workflows:
-  #     - Unit Test
-  #     - UI Test
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows:
+      - Unit Test
+      - UI Test
+    branches:
+      - master
+      - development
+    types:
+      - completed
+  workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,6 +25,20 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{ github.token }}
+
+      - name: Set production environment variables
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "NETLIFY_ALIAS=" >> $GITHUB_ENV
+          echo "NETLIFY_PRODUCTION_DEPLOYMENT=true" >> $GITHUB_ENV
+          echo "NETLIFY_MESSAGE=Production Deploy from GitHub Actions" >> $GITHUB_ENV
+
+      - name: Set staging environment variables
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          echo "NETLIFY_ALIAS=${{ github.head_ref }}" >> $GITHUB_ENV
+          echo "NETLIFY_PRODUCTION_DEPLOYMENT=false" >> $GITHUB_ENV
+          echo "NETLIFY_MESSAGE=Staging Deploy from GitHub Actions" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v2.3.4
@@ -37,12 +54,13 @@ jobs:
         with:
           publish-dir: './build'
           production-branch: master
+          production-deploy: ${{ secrets.NETLIFY_PRODUCTION_DEPLOYMENT }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
+          deploy-message: ${{ secrets.NETLIFY_MESSAGE }}
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-          alias: deploy-preview-${{ github.event.number }}
+          alias: ${{ secrets.NETLIFY_ALIAS }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
