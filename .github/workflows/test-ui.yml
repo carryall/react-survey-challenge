@@ -1,0 +1,27 @@
+name: UI Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run Cypress test
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          wait-on: http://localhost:3000
+          browser: chrome
