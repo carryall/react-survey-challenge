@@ -54,13 +54,13 @@ jobs:
         with:
           publish-dir: './build'
           production-branch: master
-          production-deploy: ${{ secrets.NETLIFY_PRODUCTION_DEPLOYMENT }}
+          production-deploy: $NETLIFY_PRODUCTION_DEPLOYMENT
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: ${{ secrets.NETLIFY_MESSAGE }}
+          deploy-message: $NETLIFY_MESSAGE
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-          alias: ${{ secrets.NETLIFY_ALIAS }}
+          alias: $NETLIFY_ALIAS
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
