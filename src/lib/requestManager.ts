@@ -14,7 +14,11 @@ const defaultOptions: { responseType: ResponseType } = {
  *                   an error object for its reason
  */
 
-function requestManager(method: HTTPMethod, endpoint: string, requestOptions: AxiosRequestConfig = {}) {
+function requestManager(
+  method: HTTPMethod,
+  endpoint: string,
+  requestOptions: AxiosRequestConfig = {}
+): Promise<Record<string, unknown>> {
   const requestParams: AxiosRequestConfig = {
     method,
     url: endpoint,
@@ -22,7 +26,7 @@ function requestManager(method: HTTPMethod, endpoint: string, requestOptions: Ax
     ...requestOptions
   }
 
-  return axios.request(requestParams).then((response: AxiosResponse<any>) => {
+  return axios.request(requestParams).then((response: AxiosResponse<Record<string, unknown>>) => {
     return response.data
   })
 }
