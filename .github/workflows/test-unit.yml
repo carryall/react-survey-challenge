@@ -26,10 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Install dependency
+      - name: Install dependencies
         run: yarn
 
-      - name: Run Codebase Lint
+      - name: Run codebase linter
         run: yarn codebase:lint
 
       - name: Run Jest test

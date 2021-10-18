@@ -36,14 +36,14 @@ jobs:
           wait-on: http://localhost:3000
           browser: chrome
 
-      - name: Upload screenshots
+      - name: Upload test run screenshots
         uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
 
-      - name: Upload videos
+      - name: Upload test run videos
         uses: actions/upload-artifact@v2
         if: always()
         with:
