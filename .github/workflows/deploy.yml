@@ -6,8 +6,8 @@ on:
       - Test Unit
       - Test UI
     branches:
-      - master
-      - development
+      - main
+      - develop
     types:
       - completed
   workflow_dispatch:
