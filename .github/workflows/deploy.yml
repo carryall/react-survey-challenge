@@ -3,8 +3,8 @@ name: Deploy
 on:
   workflow_run:
     workflows:
-      - Unit Test
-      - UI Test
+      - Test Unit
+      - Test UI
     branches:
       - master
       - development
