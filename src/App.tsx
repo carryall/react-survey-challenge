@@ -6,7 +6,7 @@ import Routes from './routes'
 
 function App(): JSX.Element {
   return (
-    <div className="app">
+    <div className="app" data-testid="app">
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
