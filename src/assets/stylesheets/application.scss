@@ -10,9 +10,11 @@
 // Mixins
 
 // Base
-@import 'base/buttons';
-@import 'base/fonts';
-@import 'base/layouts';
+@layer base {
+  @import 'base/buttons';
+  @import 'base/fonts';
+  @import 'base/layouts';
+}
 
 // Layouts
 

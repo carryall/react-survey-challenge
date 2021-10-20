@@ -1,17 +1,10 @@
 .btn {
-  @apply text-base;
+  @apply bg-white text-black text-base font-bold rounded-btn;
 
   height: rem(56px);
   padding: rem(20px 18px 14px);
 
-  border-radius: rem(10px);
-
-  background-color: theme('colors.white');
-
-  color: theme('colors.black');
-  font-weight: theme('fontWeight.bold');
-
   &--round {
-    border-radius: 100%;
+    @apply rounded-full;
   }
 }

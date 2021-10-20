@@ -33,6 +33,10 @@ module.exports = {
           800: '#3b3d47',
           900: '#292a33'
         }
+      },
+      borderRadius: {
+        DEFAULT: '12px',
+        btn: '10px'
       }
     }
   },
