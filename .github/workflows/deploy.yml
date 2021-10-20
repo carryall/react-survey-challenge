@@ -1,0 +1,73 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - Test Unit
+      - Test UI
+    branches:
+      - main
+      - develop
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Set production environment variables
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "NETLIFY_ALIAS=" >> $GITHUB_ENV
+          echo "NETLIFY_PRODUCTION_DEPLOYMENT=true" >> $GITHUB_ENV
+          echo "NETLIFY_MESSAGE=Production Deploy from GitHub Actions" >> $GITHUB_ENV
+
+      - name: Set staging environment variables
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          echo "NETLIFY_ALIAS=${{ github.head_ref }}" >> $GITHUB_ENV
+          echo "NETLIFY_PRODUCTION_DEPLOYMENT=false" >> $GITHUB_ENV
+          echo "NETLIFY_MESSAGE=Staging Deploy from GitHub Actions" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './build'
+          production-branch: main
+          production-deploy: $NETLIFY_PRODUCTION_DEPLOYMENT
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: $NETLIFY_MESSAGE
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: $NETLIFY_ALIAS
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
