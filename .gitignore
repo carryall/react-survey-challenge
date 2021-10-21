@@ -10,7 +10,9 @@
 /cypress/videos
 
 # production
-/build
+/build/*
+# except the redirect file for Netlify to fix SPA route issue
+!/build/_redirects
 
 # misc
 .DS_Store
