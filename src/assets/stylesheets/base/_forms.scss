@@ -1,0 +1,28 @@
+.form {
+  @apply w-full;
+
+  .form-group:not(:first-of-type) {
+    margin-top: rem(24px);
+  }
+
+  .form-label {
+    @apply block font-bold;
+  }
+
+  .form-input {
+    @apply rounded w-full bg-input text-base border-0;
+
+    height: rem(56px);
+    margin-top: rem(8px);
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .form-submit {
+    @apply w-full;
+
+    margin-top: rem(24px);
+  }
+}

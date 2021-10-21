@@ -32,7 +32,8 @@ module.exports = {
           800: '#3b3d47',
           900: '#292a33',
           darkest: '#15151a'
-        }
+        },
+        input: 'rgba(255, 255, 255, 0.18)'
       },
       borderRadius: {
         DEFAULT: '12px',
@@ -46,5 +47,5 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms')]
 }
