@@ -21,4 +21,32 @@
 
     margin-top: rem(24px);
   }
+
+  .form-error {
+    &__list::before {
+      @apply text-sm font-bold;
+
+      content: 'Error';
+    }
+
+    &__list-item {
+      @apply text-xs opacity-60;
+
+      &:first-of-type {
+        margin-top: rem(8px);
+      }
+
+      &:before {
+        content: "·";
+        font-size: rem(46px);
+        line-height: rem(18px);
+        margin-right: rem(4px);
+        vertical-align: text-top;
+      }
+    }
+  }
+
+  .form-error + .form-group {
+    margin-top: rem(32px);
+  }
 }

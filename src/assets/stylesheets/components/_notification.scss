@@ -1,0 +1,9 @@
+.notification {
+  @apply bg-notification rounded flex;
+
+  padding: rem(16px);
+
+  &__detail {
+    margin-left: rem(16px);
+  }
+}

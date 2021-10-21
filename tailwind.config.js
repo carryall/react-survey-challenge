@@ -33,7 +33,8 @@ module.exports = {
           900: '#292a33',
           darkest: '#15151a'
         },
-        input: 'rgba(255, 255, 255, 0.18)'
+        input: 'rgba(255, 255, 255, 0.18)',
+        notification: 'rgba(37, 37, 37, 0.6)'
       },
       borderRadius: {
         DEFAULT: '12px',
