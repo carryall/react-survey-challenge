@@ -19,7 +19,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        black: '#15151a',
         blue: '#0041e2',
         red: '#e20041',
         gray: {
@@ -31,12 +30,16 @@ module.exports = {
           600: '#747784',
           700: '#4d505b',
           800: '#3b3d47',
-          900: '#292a33'
+          900: '#292a33',
+          darkest: '#15151a'
         }
       },
       borderRadius: {
         DEFAULT: '12px',
         md: '10px'
+      },
+      backdropBlur: {
+        DEFAULT: '100px'
       }
     }
   },

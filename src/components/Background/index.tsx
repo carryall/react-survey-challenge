@@ -2,14 +2,14 @@ import React from 'react'
 
 type BackgroundProps = {
   image: string
-  childrenElement: JSX.Element
+  children: JSX.Element
 }
 
-const Background = ({ image, childrenElement }: BackgroundProps): JSX.Element => {
+const Background = ({ image, children }: BackgroundProps): JSX.Element => {
   return (
     <div className="background">
       <div className="background__image" style={{ backgroundImage: `url(${image})` }}>
-        <div className="background__overlay">{childrenElement}</div>
+        <div className="background__overlay">{children}</div>
       </div>
     </div>
   )
