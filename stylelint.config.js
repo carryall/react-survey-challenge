@@ -12,6 +12,7 @@ module.exports = {
       }
     ],
     'order/properties-alphabetical-order': null,
-    'order/properties-order': [sortOrderSmacss({ emptyLineBefore: 'always' })]
+    'order/properties-order': [sortOrderSmacss({ emptyLineBefore: 'always' })],
+    'max-nesting-depth': 4
   }
 }
