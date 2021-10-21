@@ -6,18 +6,14 @@
   }
 
   .form-label {
-    @apply block font-bold;
+    @apply block font-bold text-sm;
   }
 
   .form-input {
-    @apply rounded w-full bg-input text-base border-0;
+    @apply rounded w-full bg-input text-base border-0 focus:ring-0;
 
     height: rem(56px);
     margin-top: rem(8px);
-
-    &:focus {
-      box-shadow: none;
-    }
   }
 
   .form-submit {
