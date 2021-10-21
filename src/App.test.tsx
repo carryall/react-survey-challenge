@@ -8,6 +8,7 @@ describe('App', () => {
   it('renders app', () => {
     const { getByTestId } = render(<App />)
     const app = getByTestId('app')
+
     expect(app).toBeInTheDocument()
   })
 })
