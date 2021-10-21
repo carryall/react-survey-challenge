@@ -36,6 +36,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './build'
+          netlify-config-path: "./netlify.toml"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Preview Deploy from GitHub Actions"
           enable-pull-request-comment: false
