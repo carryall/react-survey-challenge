@@ -1,0 +1,10 @@
+.auth-header {
+  grid-column: content-start / content-end;
+  grid-row: header-start / header-end;
+
+  &__title {
+    @apply text-center opacity-60;
+
+    margin-top: rem(24px);
+  }
+}

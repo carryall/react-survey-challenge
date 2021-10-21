@@ -9,6 +9,9 @@
   }
 
   &__overlay {
-    @apply backdrop-filter backdrop-blur bg-gradient-to-t from-black;
+    @apply grid justify-items-center backdrop-filter backdrop-blur bg-gradient-to-t from-black;
+
+    grid-template-columns: 1fr [content-start] 320px [content-end] 1fr;
+    grid-template-rows: 1fr [header-start] auto [header-end] 32px [form-start] auto [form-end] 1fr;
   }
 }
