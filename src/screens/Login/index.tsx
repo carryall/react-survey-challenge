@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
-import backgroundImage from '../../assets/images/background.png'
-import logo from '../../assets/images/logo.svg'
-import Background from '../../components/Background'
-import LoginForm from '../../components/forms/Login'
+import backgroundImage from '../../assets/images/background.png';
+import logo from '../../assets/images/logo.svg';
+import Background from '../../components/Background';
+import LoginForm from '../../components/forms/Login';
 
 const Login = (): JSX.Element => {
   return (
@@ -16,7 +16,7 @@ const Login = (): JSX.Element => {
         <LoginForm />
       </Fragment>
     </Background>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

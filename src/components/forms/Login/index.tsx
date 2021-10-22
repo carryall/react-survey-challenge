@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import errorIcon from '../../../assets/images/icons/error.svg'
+import errorIcon from '../../../assets/images/icons/error.svg';
 
 const LoginForm = (): JSX.Element => {
   return (
@@ -26,7 +26,7 @@ const LoginForm = (): JSX.Element => {
       </div>
       <input type="submit" className="btn form-submit" value="Sign in" data-test-id="btn-signin" />
     </form>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

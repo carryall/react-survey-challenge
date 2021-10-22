@@ -1,8 +1,8 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import './assets/stylesheets/application.scss'
-import Routes from './routes'
+import './assets/stylesheets/application.scss';
+import Routes from './routes';
 
 function App(): JSX.Element {
   return (
@@ -11,7 +11,7 @@ function App(): JSX.Element {
         <Routes />
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

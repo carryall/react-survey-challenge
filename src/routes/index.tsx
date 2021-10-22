@@ -1,7 +1,7 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Login from '../screens/Login'
+import Login from '../screens/Login';
 
 const Routes = (): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const Routes = (): JSX.Element => {
         <Login />
       </Route>
     </Switch>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;

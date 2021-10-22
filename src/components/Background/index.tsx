@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 type BackgroundProps = {
-  image: string
-  children: JSX.Element
-}
+  image: string;
+  children: JSX.Element;
+};
 
 const Background = ({ image, children }: BackgroundProps): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ const Background = ({ image, children }: BackgroundProps): JSX.Element => {
         <div className="background__overlay">{children}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Background
+export default Background;

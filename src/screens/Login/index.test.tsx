@@ -1,25 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-import { render } from '@testing-library/react'
+import { render } from '@testing-library/react';
 
-import LoginScreen from './'
+import LoginScreen from './';
 
 const testIDs = {
   appLogo: 'app-logo'
-}
+};
 
 describe('LoginScreen', () => {
   it('renders logo', () => {
-    const { getByTestId } = render(<LoginScreen />)
-    const appLogo = getByTestId(testIDs.appLogo)
+    const { getByTestId } = render(<LoginScreen />);
+    const appLogo = getByTestId(testIDs.appLogo);
 
-    expect(appLogo).toBeInTheDocument()
-  })
+    expect(appLogo).toBeInTheDocument();
+  });
 
   it('renders the title', () => {
-    const title = 'Sign in to Nimble'
-    const { getByText } = render(<LoginScreen />)
+    const title = 'Sign in to Nimble';
+    const { getByText } = render(<LoginScreen />);
 
-    expect(getByText(title)).toBeInTheDocument()
-  })
-})
+    expect(getByText(title)).toBeInTheDocument();
+  });
+});
