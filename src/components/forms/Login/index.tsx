@@ -1,28 +1,73 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import errorIcon from '../../../assets/images/icons/error.svg';
+import { toTitleCase } from '../../../helpers/strings';
+
+type LoginData = {
+  email: string;
+  password: string;
+  [key: string]: string;
+};
+
+const schema = yup
+  .object({
+    email: yup.string().email().required(),
+    password: yup.string().required()
+  })
+  .required();
 
 const LoginForm = (): JSX.Element => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<LoginData>({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
   return (
-    <form className="form auth-form form-login">
-      <div className="notification form-error">
-        <img src={errorIcon} className="notification__icon icon" alt="logo" />
-        <ul className="notification__detail form-error__list">
-          <li className="form-error__list-item">Email can’t be blank</li>
-          <li className="form-error__list-item">Password can’t be blank</li>
-        </ul>
-      </div>
+    <form className="form auth-form form-login" onSubmit={handleSubmit(onSubmit)}>
+      {Object.keys(errors).length > 0 && (
+        <div className="notification form-error">
+          <img src={errorIcon} className="notification__icon icon" alt="logo" />
+          <ul className="notification__detail form-error__list">
+            {Object.keys(errors).map((key: keyof LoginData) => (
+              <li className="form-error__list-item" key={key}>
+                {toTitleCase(errors[key].message)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div className="form-group">
         <label htmlFor="email" className="form-label">
           Email
         </label>
-        <input name="email" type="email" className="form-input" data-test-id="input-email" />
+        <input
+          {...register('email', { required: true })}
+          type="email"
+          className="form-input"
+          data-test-id="input-email"
+        />
       </div>
       <div className="form-group">
         <label htmlFor="password" className="form-label">
           Password
         </label>
-        <input name="password" type="password" className="form-input" data-test-id="input-password" />
+        <input
+          {...register('password', { required: true })}
+          type="password"
+          className="form-input"
+          data-test-id="input-password"
+        />
       </div>
       <input type="submit" className="btn form-submit" value="Sign in" data-test-id="btn-signin" />
     </form>

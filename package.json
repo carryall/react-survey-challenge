@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "6.3.0",
+    "@hookform/resolvers": "^2.8.2",
     "@nimblehq/eslint-config-nimble": "2.1.1",
     "@tailwindcss/forms": "0.3.4",
     "@testing-library/cypress": "7.0.4",
@@ -42,7 +43,8 @@
     "stylelint-order": "4.1.0",
     "stylelint-scss": "3.19.0",
     "typescript": "4.1.2",
-    "web-vitals": "1.0.1"
+    "web-vitals": "1.0.1",
+    "yup": "0.32.11"
   },
   "scripts": {
     "start": "craco start",
