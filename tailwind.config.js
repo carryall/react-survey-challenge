@@ -36,7 +36,7 @@ module.exports = {
       },
       borderRadius: {
         DEFAULT: '12px',
-        btn: '10px'
+        md: '10px'
       }
     }
   },
