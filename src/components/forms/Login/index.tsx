@@ -29,7 +29,7 @@ const LoginForm = (): JSX.Element => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: LoginData) => {
     console.log(data);
   };
 
@@ -40,7 +40,7 @@ const LoginForm = (): JSX.Element => {
           <img src={errorIcon} className="notification__icon icon" alt="logo" />
           <ul className="notification__detail form-error__list">
             {Object.keys(errors).map((key: keyof LoginData) => (
-              <li className="form-error__list-item" key={key}>
+              <li className="form-error__list-item" role="alert" key={key}>
                 {toTitleCase(errors[key].message)}
               </li>
             ))}
