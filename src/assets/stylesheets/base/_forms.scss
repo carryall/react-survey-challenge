@@ -10,9 +10,8 @@
   }
 
   .form-input {
-    @apply rounded w-full bg-input text-base border-0 focus:ring-0;
+    @apply h-14 rounded w-full bg-input text-base border-0 focus:ring-0;
 
-    height: rem(56px);
     margin-top: rem(8px);
   }
 
