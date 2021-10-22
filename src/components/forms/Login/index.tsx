@@ -44,7 +44,7 @@ const LoginForm = (): JSX.Element => {
   return (
     <form className="form auth-form form-login" onSubmit={handleSubmit(onSubmit)}>
       {Object.keys(errors).length > 0 && (
-        <div className="notification form-error">
+        <div className="notification form-error" data-test-id="form-error">
           <img src={errorIcon} className="notification__icon icon" alt="logo" />
           <ul className="notification__detail form-error__list">
             {Object.keys(errors).map((key: keyof LoginData) => (
