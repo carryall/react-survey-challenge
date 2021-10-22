@@ -16,15 +16,15 @@ const LoginForm = (): JSX.Element => {
         <label htmlFor="email" className="form-label">
           Email
         </label>
-        <input name="email" type="email" className="form-input" data-testid="input-email" />
+        <input name="email" type="email" className="form-input" data-test-id="input-email" />
       </div>
       <div className="form-group">
         <label htmlFor="password" className="form-label">
           Password
         </label>
-        <input name="password" type="password" className="form-input" data-testid="input-password" />
+        <input name="password" type="password" className="form-input" data-test-id="input-password" />
       </div>
-      <input type="submit" className="btn form-submit" value="Sign in" data-testid="btn-signin" />
+      <input type="submit" className="btn form-submit" value="Sign in" data-test-id="btn-signin" />
     </form>
   )
 }

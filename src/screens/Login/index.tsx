@@ -10,7 +10,7 @@ const Login = (): JSX.Element => {
     <Background image={backgroundImage}>
       <Fragment>
         <div className="auth-header">
-          <img src={logo} className="auth-header__logo app-logo" alt="logo" data-testid="app-logo" />
+          <img src={logo} className="auth-header__logo app-logo" alt="logo" data-test-id="app-logo" />
           <p className="auth-header__title">Sign in to Nimble</p>
         </div>
         <LoginForm />
