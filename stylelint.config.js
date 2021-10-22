@@ -15,4 +15,4 @@ module.exports = {
     'order/properties-order': [sortOrderSmacss({ emptyLineBefore: 'always' })],
     'max-nesting-depth': 4
   }
-}
+};

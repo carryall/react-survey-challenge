@@ -78,7 +78,8 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/no-use-before-define': ['error']
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'prettier/prettier': ['error', { semi: true }]
   },
   settings: {
     react: {
@@ -90,4 +91,4 @@ module.exports = {
       }
     }
   }
-}
+};
