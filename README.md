@@ -8,6 +8,10 @@ This project is for Nimble React Internal Certification. It was bootstrapped wit
 
 `yarn`
 
+### Set Up Environment Variables
+
+Create a `.env` file from the example file `.env.example` and fill the variable values
+
 ### Runs the App
 
 `yarn start`

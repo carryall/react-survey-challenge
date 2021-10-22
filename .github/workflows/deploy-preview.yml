@@ -46,4 +46,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          REACT_APP_API_BASE_URL: ${{ secrets.STAGING_API_BASE_URL }}
+          REACT_APP_CLIENT_ID: ${{ secrets.STAGING_APP_CLIENT_ID }}
+          REACT_APP_CLIENT_SECRET: ${{ secrets.STAGING_APP_CLIENT_SECRET }}
         timeout-minutes: 1

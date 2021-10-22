@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import AuthAdapter from '../../../adapters/auth';
 import errorIcon from '../../../assets/images/icons/error.svg';
 import { toTitleCase } from '../../../helpers/strings';
 
@@ -29,8 +30,15 @@ const LoginForm = (): JSX.Element => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data: LoginData) => {
-    console.log(data);
+  const onSubmit = async (data: LoginData) => {
+    console.log('data', data);
+    await AuthAdapter.login(data.email, data.password)
+      .then((res) => {
+        console.log('res', res);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
   };
 
   return (
