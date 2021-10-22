@@ -10,7 +10,7 @@ This project is for Nimble React Internal Certification. It was bootstrapped wit
 
 ### Set Up Environment Variables
 
-Create a `.env` file from the example file `.env.example` and fill the variable values
+Create a `.env.local` file from the example file `.env.example` and fill the variable values
 
 ### Runs the App
 
