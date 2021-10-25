@@ -26,7 +26,7 @@ function requestManager(
     ...requestOptions
   };
 
-  return axios.request(requestParams).then((response: AxiosResponse<AxiosResponse>) => {
+  return axios.request(requestParams).then((response: AxiosResponse) => {
     return response.data;
   });
 }

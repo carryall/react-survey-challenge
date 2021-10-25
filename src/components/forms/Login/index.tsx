@@ -1,12 +1,14 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useFormState } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AxiosResponse, AxiosError } from 'axios';
 import * as yup from 'yup';
 
 import AuthAdapter from '../../../adapters/auth';
 import errorIcon from '../../../assets/images/icons/error.svg';
 import { toTitleCase } from '../../../helpers/strings';
+import { APIError } from '../../../types/apiError';
 
 type LoginData = {
   email: string;
@@ -25,19 +27,30 @@ const LoginForm = (): JSX.Element => {
   const {
     register,
     handleSubmit,
+    control,
+    setError,
     formState: { errors }
   } = useForm<LoginData>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    reValidateMode: 'onSubmit'
+  });
+
+  const { isSubmitting } = useFormState({
+    control
   });
 
   const onSubmit = async (data: LoginData) => {
-    console.log('data', data);
     await AuthAdapter.login(data.email, data.password)
-      .then((res) => {
-        console.log('res', res);
+      .then((res: AxiosResponse) => {
+        console.log('Successfully Logged In', res.data);
       })
-      .catch((err) => {
-        console.log('err', err);
+      .catch((err: AxiosError<APIError>) => {
+        const error = err.response?.data.errors[0];
+
+        setError('all', {
+          type: 'manual',
+          message: error?.detail
+        });
       });
   };
 
@@ -77,7 +90,13 @@ const LoginForm = (): JSX.Element => {
           data-test-id="input-password"
         />
       </div>
-      <input type="submit" className="btn form-submit" value="Sign in" data-test-id="btn-signin" />
+      <input
+        type="submit"
+        className="btn form-submit"
+        value="Sign in"
+        disabled={isSubmitting}
+        data-test-id="btn-signin"
+      />
     </form>
   );
 };
