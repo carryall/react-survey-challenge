@@ -17,16 +17,11 @@ module.exports = {
   overrides: [
     {
       files: 'src/**/*.test.ts',
-      extends: [
-        'plugin:jest/recommended',
-        'plugin:jest/style'
-      ]
+      extends: ['plugin:jest/recommended', 'plugin:jest/style']
     },
     {
       files: 'cypress/**/*.spec.ts',
-      extends: [
-        'plugin:cypress/recommended'
-      ]
+      extends: ['plugin:cypress/recommended']
     }
   ],
   parser: '@typescript-eslint/parser',
