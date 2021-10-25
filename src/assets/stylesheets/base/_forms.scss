@@ -2,7 +2,7 @@
   @apply w-full;
 
   .form-group:not(:first-of-type) {
-    margin-top: rem(24px);
+    @apply mt-6;
   }
 
   .form-label {
@@ -10,15 +10,11 @@
   }
 
   .form-input {
-    @apply h-14 rounded w-full bg-input text-base border-0 focus:ring-0;
-
-    margin-top: rem(8px);
+    @apply h-14 mt-2 rounded w-full bg-input text-base border-0 focus:ring-0;
   }
 
   .form-submit {
-    @apply w-full;
-
-    margin-top: rem(24px);
+    @apply w-full mt-6;
   }
 
   .form-error {
@@ -32,13 +28,13 @@
       @apply text-xs opacity-60;
 
       &:first-of-type {
-        margin-top: rem(8px);
+        @apply mt-2;
       }
 
       &::before {
-        content: '·';
+        @apply mr-1;
 
-        margin-right: rem(4px);
+        content: '·';
 
         font-size: rem(46px);
         line-height: rem(18px);
@@ -48,6 +44,6 @@
   }
 
   .form-error + .form-group {
-    margin-top: rem(32px);
+    @apply mt-8;
   }
 }

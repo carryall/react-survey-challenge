@@ -36,6 +36,14 @@ module.exports = {
         input: 'rgba(255, 255, 255, 0.18)',
         notification: 'rgba(37, 37, 37, 0.6)'
       },
+      spacing: {
+        2.5: '0.625rem', // 10px
+        3.5: '0.875rem', // 14px
+        4.5: '1.125rem', // 18px
+        7.5: '1.875rem', // 30px
+        8.5: '2.125rem', // 34px
+        15.5: '3.875rem' // 62px
+      },
       borderRadius: {
         DEFAULT: '12px',
         md: '10px'
