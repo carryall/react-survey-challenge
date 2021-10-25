@@ -26,20 +26,6 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      - name: Set production environment variables
-        if: github.ref == 'refs/heads/main'
-        run: |
-          echo "NETLIFY_ALIAS=" >> $GITHUB_ENV
-          echo "NETLIFY_PRODUCTION_DEPLOYMENT=true" >> $GITHUB_ENV
-          echo "NETLIFY_MESSAGE=Production Deploy from GitHub Actions" >> $GITHUB_ENV
-
-      - name: Set staging environment variables
-        if: github.ref == 'refs/heads/develop'
-        run: |
-          echo "NETLIFY_ALIAS=develop" >> $GITHUB_ENV
-          echo "NETLIFY_PRODUCTION_DEPLOYMENT=false" >> $GITHUB_ENV
-          echo "NETLIFY_MESSAGE=Staging Deploy from GitHub Actions" >> $GITHUB_ENV
-
       - name: Checkout
         uses: actions/checkout@v2.3.5
 
@@ -55,18 +41,36 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy to Netlify
+      - name: Deploy to Netlify Production
+        if: github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './build'
           production-branch: main
-          production-deploy: $NETLIFY_PRODUCTION_DEPLOYMENT
+          production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: $NETLIFY_MESSAGE
+          deploy-message: Production Deploy from GitHub Actions
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-          alias: $NETLIFY_ALIAS
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+      
+      - name: Deploy to Netlify Staging
+        if: github.ref == 'refs/heads/develop'
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './build'
+          production-branch: main
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: Staging Deploy from GitHub Actions
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: develop
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
