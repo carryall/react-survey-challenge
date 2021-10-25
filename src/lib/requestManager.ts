@@ -1,8 +1,8 @@
-import axios, { Method as HTTPMethod, ResponseType, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { Method as HTTPMethod, ResponseType, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const defaultOptions: { responseType: ResponseType } = {
   responseType: 'json'
-}
+};
 
 /**
  * The main API access function that comes preconfigured with useful defaults.
@@ -24,11 +24,11 @@ function requestManager(
     url: endpoint,
     ...defaultOptions,
     ...requestOptions
-  }
+  };
 
   return axios.request(requestParams).then((response: AxiosResponse<Record<string, unknown>>) => {
-    return response.data
-  })
+    return response.data;
+  });
 }
 
-export default requestManager
+export default requestManager;

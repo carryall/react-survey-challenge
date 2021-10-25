@@ -1,8 +1,5 @@
 .btn {
-  @apply bg-white text-black text-base font-bold rounded-md;
-
-  height: rem(56px);
-  padding: rem(20px 18px 14px);
+  @apply h-14 pt-5 px-4.5 pb-3.5 bg-white text-black text-base font-bold rounded-md;
 
   &--round {
     @apply rounded-full;

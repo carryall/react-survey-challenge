@@ -19,7 +19,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        black: '#15151a',
         blue: '#0041e2',
         red: '#e20041',
         gray: {
@@ -31,17 +30,29 @@ module.exports = {
           600: '#747784',
           700: '#4d505b',
           800: '#3b3d47',
-          900: '#292a33'
-        }
+          900: '#292a33',
+          darkest: '#15151a'
+        },
+        input: 'rgba(255, 255, 255, 0.18)',
+        notification: 'rgba(37, 37, 37, 0.6)'
+      },
+      spacing: {
+        4.5: '1.125rem', // 18px
+        7.5: '1.875rem', // 30px
+        8.5: '2.125rem', // 34px
+        15.5: '3.875rem' // 62px
       },
       borderRadius: {
         DEFAULT: '12px',
         md: '10px'
+      },
+      backdropBlur: {
+        DEFAULT: '100px'
       }
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
-}
+  plugins: [require('@tailwindcss/forms')]
+};

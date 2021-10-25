@@ -1,0 +1,7 @@
+.notification {
+  @apply p-4 bg-notification rounded flex;
+
+  &__detail {
+    @apply ml-4;
+  }
+}

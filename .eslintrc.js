@@ -33,6 +33,7 @@ module.exports = {
     }
   },
   rules: {
+    semi: 'error',
     'max-len': ['error', { code: 120 }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -78,6 +79,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': ['error'],
+    'prettier/prettier': ['error', { semi: true }]
   },
   settings: {
     react: {
@@ -89,4 +91,4 @@ module.exports = {
       }
     }
   }
-}
+};

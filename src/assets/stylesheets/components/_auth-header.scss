@@ -1,0 +1,8 @@
+.auth-header {
+  grid-column: content-start / content-end;
+  grid-row: header-start / header-end;
+
+  &__title {
+    @apply mt-6 text-center opacity-60;
+  }
+}

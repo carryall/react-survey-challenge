@@ -5,3 +5,11 @@
   src: url('../../fonts/Neuzeit S LT Std Book.woff2') format('woff2'),
     url('../../fonts/Neuzeit S LT Std Book.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Neuzeit S LT Std';
+  font-weight: theme('fontWeight.bold');
+  src: url('../../fonts/Neuzeit S LT Std Book Heavy.eot');
+  src: url('../../fonts/Neuzeit S LT Std Book Heavy.woff2') format('woff2'),
+    url('../../fonts/Neuzeit S LT Std Book Heavy.ttf') format('truetype');
+}
