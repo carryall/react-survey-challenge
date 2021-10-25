@@ -31,6 +31,10 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          REACT_APP_API_BASE_URL: ${{ secrets.STAGING_API_BASE_URL }}
+          REACT_APP_CLIENT_ID: ${{ secrets.STAGING_APP_CLIENT_ID }}
+          REACT_APP_CLIENT_SECRET: ${{ secrets.STAGING_APP_CLIENT_SECRET }}
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2

@@ -8,6 +8,10 @@ This project is for Nimble React Internal Certification. It was bootstrapped wit
 
 `yarn`
 
+### Set Up Environment Variables
+
+Create a `.env.local` file from the example file `.env.example` and fill the variable values
+
 ### Runs the App
 
 `yarn start`
@@ -56,6 +60,16 @@ To launch, the test runner in the interactive watch mode runs the following comm
 `yarn test`
 
 ### UI Test (Cypress)
+
+#### Set Up Cypress Environment Variables
+
+Create a `cypress.env.json` file from the example file `cypress.env.json.example` and fill the variable values
+
+#### Run Cypress Test
+
+Before running Cypress test, the server needed to be run.
+
+`yarn start`
 
 To run Cypress tests run the following command. By default, cypress run will run all tests headlessly in the Electron browser. [Check options](https://docs.cypress.io/guides/guides/command-line#cypress-run)
 

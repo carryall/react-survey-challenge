@@ -35,6 +35,7 @@ jobs:
           start: yarn start
           wait-on: http://localhost:3000
           browser: chrome
+          env: CYPRESS_LOGIN_EMAIL=${{ secrets.CYPRESS_LOGIN_EMAIL }},CYPRESS_LOGIN_PASSWORD=${{ secrets.CYPRESS_LOGIN_PASSWORD }}
 
       - name: Upload test run screenshots
         uses: actions/upload-artifact@v2

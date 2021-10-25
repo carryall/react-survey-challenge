@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/cypress/screenshots
 /cypress/videos
 
 # production
@@ -18,6 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+cypress.env.json
 
 npm-debug.log*
 yarn-debug.log*

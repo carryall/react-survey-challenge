@@ -18,7 +18,7 @@ function requestManager(
   method: HTTPMethod,
   endpoint: string,
   requestOptions: AxiosRequestConfig = {}
-): Promise<Record<string, unknown>> {
+): Promise<AxiosResponse> {
   const requestParams: AxiosRequestConfig = {
     method,
     url: endpoint,
@@ -26,7 +26,7 @@ function requestManager(
     ...requestOptions
   };
 
-  return axios.request(requestParams).then((response: AxiosResponse<Record<string, unknown>>) => {
+  return axios.request(requestParams).then((response: AxiosResponse) => {
     return response.data;
   });
 }
