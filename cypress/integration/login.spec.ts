@@ -24,10 +24,14 @@ describe('User can login', () => {
 
       cy.findByTestId(testIds.emailFiled).type(Cypress.env('CYPRESS_LOGIN_EMAIL'));
       cy.findByTestId(testIds.passwordField).type(Cypress.env('CYPRESS_LOGIN_PASSWORD'));
-      cy.findByTestId(testIds.signinBtn).click();
-
-      expect(localStorage.getItem('access_token')).to.eq('access-token');
-      expect(localStorage.getItem('refresh_token')).to.eq('refresh-token');
+      cy.findByTestId(testIds.signinBtn)
+        .click()
+        .should(() => {
+          expect(localStorage.getItem('access_token')).to.eq('access-token');
+          expect(localStorage.getItem('refresh_token')).to.eq('refresh-token');
+          expect(localStorage.getItem('token_type')).to.eq('Bearer');
+          expect(localStorage.getItem('expires_in')).to.eq('7200');
+        });
     });
 
     it('redirects to home page', () => {
