@@ -7,7 +7,7 @@ import * as yup from 'yup';
 
 import AuthAdapter from '../../../adapters/auth';
 import errorIcon from '../../../assets/images/icons/error.svg';
-import * as CONST from '../../../constants/authActionTypes';
+import * as AUTH_ACTION from '../../../constants/authActionTypes';
 import { AuthContext } from '../../../contexts/auth';
 import { toTitleCase } from '../../../helpers/strings';
 import { APIError } from '../../../types/apiError';
@@ -47,10 +47,8 @@ const LoginForm = (): JSX.Element => {
   const onSubmit = async (data: LoginData) => {
     await AuthAdapter.login(data.email, data.password)
       .then((res: AxiosResponse<AuthPayload>) => {
-        console.log('Successfully Logged In', res.data);
-
         dispatch({
-          type: CONST.SET_TOKEN,
+          type: AUTH_ACTION.SET_TOKEN,
           payload: res.data
         });
       })
