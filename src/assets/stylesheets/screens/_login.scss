@@ -1,0 +1,8 @@
+.screen.login {
+  .screen__content {
+    @apply grid;
+
+    grid-template-columns: 1fr [content-start] 320px [content-end] 1fr;
+    grid-template-rows: 1fr [header-start] auto [header-end] 32px [form-start] auto [form-end] 1fr;
+  }
+}
