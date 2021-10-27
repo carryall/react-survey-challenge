@@ -1,0 +1,14 @@
+.screen {
+  &__background-image,
+  &__content {
+    @apply h-screen;
+  }
+
+  &__background-image {
+    @apply bg-no-repeat bg-cover bg-center bg-black;
+  }
+
+  &__content {
+    @apply justify-items-center backdrop-filter backdrop-blur bg-gradient-to-t from-black;
+  }
+}

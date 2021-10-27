@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 
 import backgroundImage from '../../assets/images/background.png';
 import logo from '../../assets/images/logo.svg';
-import Background from '../../components/Background';
 import LoginForm from '../../components/forms/Login';
+import Screen from '../../components/Screen';
 
 const Login = (): JSX.Element => {
   return (
-    <Background image={backgroundImage}>
+    <Screen backgroundImage={backgroundImage} className="login">
       <Fragment>
         <div className="auth-header">
           <img src={logo} className="auth-header__logo app-logo" alt="logo" data-test-id="app-logo" />
@@ -15,7 +15,7 @@ const Login = (): JSX.Element => {
         </div>
         <LoginForm />
       </Fragment>
-    </Background>
+    </Screen>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, useFormState } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,8 +7,11 @@ import * as yup from 'yup';
 
 import AuthAdapter from '../../../adapters/auth';
 import errorIcon from '../../../assets/images/icons/error.svg';
+import * as AUTH_ACTION from '../../../constants/authActionTypes';
+import { AuthContext } from '../../../contexts/auth';
 import { toTitleCase } from '../../../helpers/strings';
 import { APIError } from '../../../types/apiError';
+import { AuthPayload } from '../../../types/authActionType';
 
 type LoginData = {
   email: string;
@@ -39,10 +42,15 @@ const LoginForm = (): JSX.Element => {
     control
   });
 
+  const { dispatch } = useContext(AuthContext);
+
   const onSubmit = async (data: LoginData) => {
     await AuthAdapter.login(data.email, data.password)
-      .then((res: AxiosResponse) => {
-        console.log('Successfully Logged In', res.data);
+      .then((res: AxiosResponse<AuthPayload>) => {
+        dispatch({
+          type: AUTH_ACTION.SET_TOKEN,
+          payload: res.data
+        });
       })
       .catch((err: AxiosError<APIError>) => {
         const error = err.response?.data.errors[0];
